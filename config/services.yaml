@@ -29,3 +29,7 @@ services:
     Infrastructure\API\Common\V1\Client\Controller\:
         resource: '../src/Infrastructure/API/Common/V1/Client/Controller/'
         tags: [ 'controller.service_arguments' ]
+
+    Infrastructure\API\Common\V1\Secure\Controller\:
+        resource: '../src/Infrastructure/API/Common/V1/Secure/Controller/'
+        tags: [ 'controller.service_arguments' ]

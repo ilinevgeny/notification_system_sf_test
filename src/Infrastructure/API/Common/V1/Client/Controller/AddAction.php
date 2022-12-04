@@ -6,7 +6,6 @@ namespace  Infrastructure\API\Common\V1\Client\Controller;
 
 use Application\Client\Command\AddClientCommand;
 use Application\Client\Command\AddClientHandler;
-use Application\Forecast\UseCase\Command\AddForecastCommand;
 use Infrastructure\Client\Request\AddActionRequestPayload;
 use Infrastructure\Common\Http\JsonResponder;
 use Infrastructure\Common\Service\ValidatorInterface;
@@ -38,9 +37,10 @@ class AddAction
             $this->handler->handle(new AddClientCommand(
                 $payload->firstName,
                 $payload->lastName,
-                $payload->phone,
-                $payload->email
+                $payload->email,
+                $payload->phone
             ));
+
         } catch (\RuntimeException | \InvalidArgumentException | \DomainException $exception) {
             return $this->responder->respondFail($exception->getMessage());
         }

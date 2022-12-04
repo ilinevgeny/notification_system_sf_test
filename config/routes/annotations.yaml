@@ -1,5 +1,9 @@
-controllers:
+controllers_client:
     resource: ../../src/Infrastructure/API/Common/V1/Client/Controller/
+    type: annotation
+
+controllers_secure:
+    resource: ../../src/Infrastructure/API/Common/V1/Secure/Controller/
     type: annotation
 
 kernel:
