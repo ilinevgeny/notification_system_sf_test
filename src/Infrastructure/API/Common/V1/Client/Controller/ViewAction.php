@@ -9,7 +9,6 @@ use Infrastructure\Client\Dto\ViewActionDto;
 use Infrastructure\Common\Http\JsonResponder;
 use Infrastructure\Common\ObjectNormalizer;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ViewAction
