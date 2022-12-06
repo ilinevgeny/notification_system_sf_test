@@ -20,6 +20,16 @@ class OrmClientRepository extends ServiceEntityRepository implements ClientRepos
         return $this->find($id);
     }
 
+    public function findByEmail(string $email): ?Client
+    {
+        return $this->findOneBy(['email' => $email]);
+    }
+
+    public function findByPhone(string $phone): ?Client
+    {
+        return $this->findOneBy(['phone' => $phone]);
+    }
+
     public function save(Client $client): void
     {
         $this->getEntityManager()->persist($client);

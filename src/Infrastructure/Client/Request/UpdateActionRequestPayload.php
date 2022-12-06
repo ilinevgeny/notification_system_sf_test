@@ -39,7 +39,7 @@ class UpdateActionRequestPayload implements RequestPayload
     public function fillFromPayload(array $payload): void
     {
         if (isset($payload['id'])) {
-            $this->id = $payload['id'];
+            $this->id = (int) $payload['id'];
         }
 
         $this->firstName = $payload['firstName'] ?? null;

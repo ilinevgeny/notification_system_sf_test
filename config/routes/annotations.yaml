@@ -3,7 +3,7 @@ controllers_client:
     type: annotation
 
 controllers_secure:
-    resource: ../../src/Infrastructure/API/Common/V1/Secure/Controller/
+    resource: ../../src/Infrastructure/API/Common/V1/Notification/Controller/
     type: annotation
 
 kernel:

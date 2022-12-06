@@ -6,41 +6,29 @@ namespace Application\Client\Command;
 
 class UpdateClientCommand
 {
-    private ?string $firstName;
-    private ?string $lastName;
-    private ?string $email;
-    private ?string $phone;
+    private int $id;
+    public ?string $firstName;
+    public ?string $lastName;
+    public ?string $email;
+    public ?string $phone;
 
     public function __construct(
-        ?string $firstName,
+        int $id,
+        ?string $firstName = null,
         ?string $lastName = null,
         ?string $email  = null,
         ?string $phone  = null
     )
     {
+        $this->id = $id;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
         $this->phone = $phone;
     }
 
-    public function getFirstName(): string
-    {
-        return $this->firstName;
-    }
-
-    public function getLastName(): string
-    {
-        return $this->lastName;
-    }
-
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function getPhone(): string
-    {
-        return $this->phone;
-    }
+   public function getId(): int
+   {
+       return $this->id;
+   }
 }

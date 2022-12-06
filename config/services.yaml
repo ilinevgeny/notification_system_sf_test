@@ -30,6 +30,6 @@ services:
         resource: '../src/Infrastructure/API/Common/V1/Client/Controller/'
         tags: [ 'controller.service_arguments' ]
 
-    Infrastructure\API\Common\V1\Secure\Controller\:
-        resource: '../src/Infrastructure/API/Common/V1/Secure/Controller/'
+    Infrastructure\API\Common\V1\Notification\Controller\:
+        resource: '../src/Infrastructure/API/Common/V1/Notification/Controller/'
         tags: [ 'controller.service_arguments' ]
