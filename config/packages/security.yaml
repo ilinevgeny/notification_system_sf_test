@@ -28,7 +28,7 @@ security:
                 success_handler: lexik_jwt_authentication.handler.authentication_success
                 failure_handler: lexik_jwt_authentication.handler.authentication_failure
         api:
-            pattern: ^/api/v1/secure
+            pattern: ^/api/v1/notification
             stateless: true
             provider: app_user_provider
             guard:
@@ -50,7 +50,7 @@ security:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
         - { path: ^/api/admin/auth, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/api/v1/secure, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/api/v1/notification, roles: IS_AUTHENTICATED_FULLY }
 
 when@test:
     security:

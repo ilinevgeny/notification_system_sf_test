@@ -3,14 +3,13 @@
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity table="client" name="Domain\Client\Client">
+    <entity table="client" name="Domain\Notification\Notification">
 
     <id name="id" type="integer" column="id">
         <generator strategy="AUTO"/>
     </id>
-    <field name="firstName" column="first_name"/>
-    <field name="lastName" column="last_name"/>
-    <field name="email" column="email"/>
-    <field name="phone"  column="phone"/>
+    <field name="clientId" column="client_id" type="integer"/>
+    <field name="channel" column="channel" type="integer"/>
+    <field name="message" column="message" type="text" />
     </entity>
 </doctrine-mapping>

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -14,12 +15,22 @@ class ApiTestCase extends WebTestCase
 {
     protected ?Response $lastResponse = null;
     protected static KernelBrowser $client;
+    protected EntityManagerInterface $em;
 
     protected function setUp(): void
     {
         self::$client = self::createClient();
-       // self::bootKernel();
-//        self::$client = static::createClient();
+        parent::setUp();
+        $this->em = self::getContainer()->get(EntityManagerInterface::class);
+        //$this->em = self::->get(EntityManagerInterface::class);
+        //self::bootKernel();
+
+
+        if (!$this->em instanceof EntityManagerInterface) {
+            self::fail('symfony not initialized');
+        }
+
+        $this->em->beginTransaction();
     }
 
     public function request(string $method, string $uri, array $parameters = [], array $files = []): Response
@@ -39,5 +50,14 @@ class ApiTestCase extends WebTestCase
         $requestStack->push($request);
 
         return $requestStack;
+    }
+
+    public function tearDown(): void
+    {
+        $this->em->rollback();
+        $this->em->close();
+        //$this->em = null;
+
+        parent::tearDown();
     }
 }

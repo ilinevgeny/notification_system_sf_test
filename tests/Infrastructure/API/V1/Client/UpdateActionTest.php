@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Infrastructure\API\V1\Client;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Domain\Client\Client;
 use Infrastructure\Client\Repository\OrmClientRepository;
@@ -12,28 +11,6 @@ use Tests\ApiTestCase;
 
 class UpdateActionTest extends ApiTestCase
 {
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->em = self::$container->get(EntityManagerInterface::class);
-
-        if (!$this->em instanceof EntityManagerInterface) {
-            self::fail('symfony not initialized');
-        }
-
-        $this->em->beginTransaction();
-    }
-
-    public function tearDown(): void
-    {
-        $this->em->rollback();
-        $this->em->close();
-        $this->em = null;
-
-        parent::tearDown();
-    }
-
     public function testParamsValidation(): void
     {
         $phoneWrongFormat = 1234567890000;
