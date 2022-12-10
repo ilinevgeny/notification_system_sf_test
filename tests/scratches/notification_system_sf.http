@@ -51,7 +51,30 @@ Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "clientId": "10",
-  "channel": "sms",
-  "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  "clientIds": [10, 11, 12],
+  "channel": {
+    "sms": {
+      "delay": 10,
+      "wrap": true
+    },
+    "email": {
+      "delay": 30
+    }
+  },
+  "message": {
+    "text": {
+      "sms":  {
+          "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "ru": "Лорем ипсум долор сит амет, консектетур адипiscing елит"
+        },
+      "email": {
+          "en": "<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>  and more symbols...",
+          "ru": "<h1>Лорем ипсум долор сит амет, консектетур адипiscing елит</h1> и много еще символов..."
+        }
+    },
+    "subject": {
+        "en": "Hello, {{firstName}} {{lastName}}",
+        "ru": "Привет, {{firstName}} {{lastName}}"
+      }
+  }
 }

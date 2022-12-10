@@ -15,6 +15,9 @@ class AddNotificationsAction
     {
     }
 
+    /**
+     * @Route("/api/v1/notification/add", methods={"POST"})
+     */
     public function add(): JsonResponse
     {
         return new JsonResponse(['message' => 'ok, add'], Response::HTTP_OK);
