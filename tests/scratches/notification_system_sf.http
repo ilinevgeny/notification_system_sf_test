@@ -43,7 +43,7 @@ Accept: application/json
 Authorization: Bearer {{auth_token}}
 //Content-Type: application/json
 
-### GET /api/v1/notification/client/get
+### POST api/v1/notification/add
 // @no-log
 POST http://localhost:8000/api/v1/notification/add
 Accept: application/json
@@ -51,14 +51,18 @@ Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
 {
-  "clientIds": [10, 11, 12],
-  "channel": {
+  "clients": [
+    {"id": 10, "channels": {"email": true, "sms": true}},
+    {"id": 11, "channels": {"email": false, "sms": true}},
+    {"id": 3, "channels": {"email": true, "sms": false}}
+  ],
+  "channelsConfig": {
     "sms": {
-      "delay": 10,
+      "date": "2022-12-26 12:00:00",
       "wrap": true
     },
     "email": {
-      "delay": 30
+      "date": "2022-12-26 12:00:00"
     }
   },
   "message": {

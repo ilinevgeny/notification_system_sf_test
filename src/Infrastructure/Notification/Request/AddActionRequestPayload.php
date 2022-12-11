@@ -12,6 +12,7 @@ class AddActionRequestPayload implements RequestPayload
 
     public function fillFromPayload(array $payload): void
     {
-        // TODO: Implement fillFromPayload() method.
+        print_r($payload);
+        die();
     }
 }
