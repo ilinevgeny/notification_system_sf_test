@@ -8,11 +8,10 @@ use Infrastructure\Common\Http\RequestPayload;
 
 class AddActionRequestPayload implements RequestPayload
 {
-    public string $content;
+    public array $payload;
 
     public function fillFromPayload(array $payload): void
     {
-        print_r($payload);
-        die();
+        $this->payload = $payload;
     }
 }

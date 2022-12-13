@@ -6,10 +6,10 @@ namespace Application\Notification;
 
 class AddNotificationCommand
 {
-    public string $content;
+    public array $payload;
 
-    public function __construct(string $content)
+    public function __construct(array $payload)
     {
-        $this->content = $content;
+        $this->payload = $payload;
     }
 }

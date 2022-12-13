@@ -6,6 +6,7 @@ namespace Domain\Notification;
 
 class Notification
 {
+    private int $id;
     public string $content;
 
     public function __construct(string $content)

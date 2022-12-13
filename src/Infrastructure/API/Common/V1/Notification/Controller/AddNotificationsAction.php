@@ -41,7 +41,7 @@ class AddNotificationsAction
                 return $this->responder->respondFailValidation($this->validator->getErrors());
             }
 
-           // $this->handler->handle(new AddNotificationCommand($payload));
+           $this->handler->handle(new AddNotificationCommand($payload->payload));
         } catch (\RuntimeException | \InvalidArgumentException | \DomainException $exception) {
             return $this->responder->respondFail($exception->getMessage());
         }

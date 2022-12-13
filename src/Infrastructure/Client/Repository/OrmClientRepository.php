@@ -15,6 +15,7 @@ class OrmClientRepository extends ServiceEntityRepository implements ClientRepos
     {
         parent::__construct($registry, Client::class);
     }
+
     public function findById(int $id): ?Client
     {
         return $this->find($id);
